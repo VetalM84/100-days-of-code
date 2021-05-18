@@ -40,10 +40,10 @@ def make_report():
 
 
 def check_resources(drink):
-    if drink in MENU.keys():
-        water_for_drink = MENU.get(drink).get("ingredients").get("water")
+    if drink in MENU:
+        water_for_drink = MENU.get(drink).get("ingredients").get("water", 0)
         milk_for_drink = MENU.get(drink).get("ingredients").get("milk", 0)
-        coffee_for_drink = MENU.get(drink).get("ingredients").get("coffee")
+        coffee_for_drink = MENU.get(drink).get("ingredients").get("coffee", 0)
 
         if resources["water"] < water_for_drink:
             print('Мало воды')
@@ -84,9 +84,9 @@ def check_transaction(coins: float, drink: str):
 
 
 def make_drink(drink):
-    water_for_drink = MENU.get(drink).get("ingredients").get("water")
+    water_for_drink = MENU.get(drink).get("ingredients").get("water", 0)
     milk_for_drink = MENU.get(drink).get("ingredients").get("milk", 0)
-    coffee_for_drink = MENU.get(drink).get("ingredients").get("coffee")
+    coffee_for_drink = MENU.get(drink).get("ingredients").get("coffee", 0)
     drink_cost = MENU.get(drink).get("cost")
     resources["water"] -= water_for_drink
     resources["milk"] -= milk_for_drink
